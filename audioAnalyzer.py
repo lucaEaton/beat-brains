@@ -1,7 +1,12 @@
+import math
+
 import librosa
 from librosa import feature
+import numpy as np
 import os
 
+
+KEYS = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 
 class AudioAnalyzer:
     def __init__(self, file_path):
@@ -19,17 +24,22 @@ class AudioAnalyzer:
 
     @staticmethod
     def _extract_tempo(y, sr):
-        return round(float(librosa.beat.tempo(y=y, sr=sr)), 2)
+        tempo, beat_frames = librosa.beat.beat_track(y=y, sr=sr)
+        return math.floor(tempo.item())
 
     # Doesnt Work
     @staticmethod
     def _extract_key(y, sr):
-        return librosa.feature.chroma_stft(y=sr, sr=sr)
+        chroma = librosa.feature.chroma_cqt(y=y, sr=sr)
+        chroma_vals = np.sum(chroma, axis=1)
+        most_common_pc = np.argmax(chroma_vals)
+        key = KEYS[most_common_pc]
+        return key
 
     def get_analysis(self):
-        audio_y, audio_sr = self._load_audio()
-        bpm_value = self._extract_tempo(audio_y, audio_sr)
-        key_value = self._extract_key(audio_y, audio_sr)
+        y, sr = self._load_audio()
+        bpm_value = self._extract_tempo(y, sr)
+        key_value = self._extract_key(y, sr)
 
         audio_dictionary = {
             "BPM": bpm_value,
@@ -37,3 +47,14 @@ class AudioAnalyzer:
         }
 
         return audio_dictionary
+
+
+def main():
+    filename = "test_audio/Rihanna - S&M (Audio).mp3"
+    audio = AudioAnalyzer(file_path=filename)
+
+    print(audio.get_analysis())
+
+
+if __name__ == "__main__":
+    main()
