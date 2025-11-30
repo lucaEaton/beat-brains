@@ -25,7 +25,7 @@ class GeminiClient:
             "sentence.\n"
             "Base this strictly on the provided BPM and key.\n"
             "- Recommended Transition BPM Range: Suggest a tight range for pitch correction "
-            "(e.g., 127.5 BPM to 129.0 BPM).\n"
+            "(e.g., 127.5 BPM to 135.0 BPM).\n"
             "- Harmonic Mixing Keys: Suggest 2-3 compatible next keys/scales using the Camelot Wheel logic "
             "(e.g., if input is 8A, suggest 7A, 8B, 9A). Assume the user understands this notation "
             "Assign a grade (A, B, or C) for the track's overall mix-ability and complexity and why "
@@ -41,12 +41,12 @@ class GeminiClient:
 
         return response.text
 
-# def main():
-# filename = "test_audio/John Lennon - Original Imagine Music Video 1971.mp3"
-# gemini_client = GeminiClient(model_name='gemini-2.5-flash')
+def main():
+   filename = "test_audio/John Lennon - Original Imagine Music Video 1971.mp3"
+   gemini_client = GeminiClient(model_name='gemini-2.5-flash')
 
-# print(gemini_client.build_response(file_name=filename))
+   print(gemini_client.build_response(file_name=filename))
 
 
-# if __name__ == "__main__":
-# main()
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Audio Upload</title>
+  </head>
+  <body>
+    <h1>Upload Audio</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+      {{ form.hidden_tag() }}
+      {{ form.file.label }}<br>
+      {{ form.file() }}<br><br>
+      {{ form.submit() }}
+    </form>
+    <hr>
+    <h2>Recommendations</h2>
+    {% if output %}
+      <textarea rows="20" cols="100">{{ output }}</textarea>
+    {% endif %}
+  </body>
+</html>
