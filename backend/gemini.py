@@ -1,7 +1,7 @@
 import os
 import json
 from google import genai
-from audioAnalyzer import AudioAnalyzer
+from backend.audioAnalyzer import AudioAnalyzer
 
 class GeminiClient:
     def __init__(self, api_key_env_var: str = "GEMINI_API_KEY", model_name: str = 'gemini-2.5-flash'):
