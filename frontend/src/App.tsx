@@ -7,7 +7,7 @@ function App() {
     <div className="terminal-bg min-h-screen">
 
       {/*header*/}
-      <div className="w-full border-b border-green-500/50 bg-black/80 px-4 py-2 flex items-center justify-between fixed top-0 left-0 right-0 z-50 shadow-md shadow-green-500/20">
+      <div className="w-full border-b border-green-500/50 bg-black/80 px-4 py-5 flex items-center justify-between fixed top-0 left-0 right-0 z-50 shadow-md shadow-green-500/20">
         <div className="flex items-center space-x-2">
           <span className="ml-3 text-green-400 font-mono text-sm tracking-tight">
             Beat Brains Terminal v1.0
@@ -31,8 +31,8 @@ function App() {
         </div>
       </div>
 
-      <div className="flex items-center justify-center p-4 pt-20">
-        <Card className="terminal-glow w-full max-w-2xl border border-green-500/60 bg-black/80 text-green-300">
+      <div className="flex items-center justify-center p-4 pt-36">
+        <Card className="terminal-glow w-full max-w-4xl border border-green-500/60 bg-black/80 text-green-300">
           <CardHeader className="border-b border-green-500/40 pb-4">
             <CardTitle className="flex items-center justify-between text-xl sm:text-2xl font-mono tracking-tight">
               <span>&gt; Beat Brains Terminal</span>

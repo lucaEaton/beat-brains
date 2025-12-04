@@ -3,13 +3,13 @@ import tempfile
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
-from .gemini import GeminiClient
+from gemini import GeminiClient
 
 load_dotenv()
 load_dotenv(
     os.path.join(
         os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-        "../.env"
+        "/.env"
     )
 )
 
