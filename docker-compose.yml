@@ -10,7 +10,7 @@ services:
     build: ./frontend
     container_name: beat-brains-frontend
     ports:
-      - "5173:5173"
+      - "5173:80"
     environment:
       - VITE_API_URL=http://0.0.0.0:8000/analyze
     depends_on:

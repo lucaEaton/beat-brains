@@ -4,10 +4,10 @@ from google import genai
 from audioAnalyzer import AudioAnalyzer
 
 class GeminiClient:
+
     # Takes in api key and model
     # API key is set to default done using .env variables so always leave it blank
     # sets the client with the api and the model type with the model name passed
-
     def __init__(self, api_key_env_var: str = "GEMINI_API_KEY", model_name: str = 'gemini-2.5-flash'):
         self.client = genai.Client(api_key=os.getenv(api_key_env_var))
         self.model = model_name

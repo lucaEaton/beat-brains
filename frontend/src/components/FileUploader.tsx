@@ -12,7 +12,9 @@ export const FileUploader: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = import.meta.env.VITE_API_URL || "/analyze";
+  console.log("API_URL =", API_URL);
+
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
   // auto scroll
